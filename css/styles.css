@@ -1,26 +1,27 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-html{
+html {
 	font: normal 16px sans-serif;
 	color: #555;
 }
 
 ul,
-nav{
+nav {
 	list-style: none;
 }
 
-a{
+a {
 	text-decoration: none;
 	opacity: 0.75;
 	color: #fff;
 }
 
-a:hover{
+a:hover {
 	opacity: 1;
 }
 
@@ -33,25 +34,37 @@ a.btn {
 	opacity: 1;
 }
 
-section{
+section {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	padding: 100px 80px;
 }
 
-section:not(.hero):nth-child(even){
+section:not(.hero):nth-child(even) {
 	background-color: #f5f5f5;
 }
 
 .grid {
 	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 }
 
-hr{
+hr {
 	width: 250px;
 	height: 3px;
 	background-color: #3f51b5;
@@ -59,9 +72,9 @@ hr{
 	margin: 0 0 50px 0;
 }
 
-.title{
+.title {
 	text-transform: capitalize;
-	font: bold 32px "Open Sans",  sans-serif;
+	font: bold 32px "Open Sans", sans-serif;
 	margin: 0 0 30px 0;
 }
 
@@ -73,46 +86,83 @@ section p {
 	text-align: center;
 }
 
-header{
+@media (max-width: 800px) {
+	section {
+		padding: 50px 20px;
+	}
+}
+
+header {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	position: absolute;
 	width: 100%;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	padding: 35px 100px;
+	-webkit-animation: 1s fadein 0.5s forwards;
 	animation: 1s fadein 0.5s forwards;
 	opacity: 0;
 	color: #fff;
 }
 
-@keyframes fadein {
-	100%{
+@-webkit-keyframes fadein {
+	100% {
 		opacity: 1;
 	}
 }
 
-header h2{
+@keyframes fadein {
+	100% {
+		opacity: 1;
+	}
+}
+
+header h2 {
 	font-family: "Quicksand", sans-serif;
 }
 
 header nav {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	margin: 0 -15px 0 0 ;
+	margin: 0 -15px 0 0;
 }
 
 header nav li {
 	margin: 0 15px;
 }
 
-.hero{
+@media (max-width: 800px) {
+	header {
+		padding: 20px 50px;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	header h2 {
+		margin: 0 0 15px 0;
+	}
+}
+
+.hero {
 	position: relative;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	text-align: center;
 	min-height: 100vh;
 	color: #fff;
 }
 
-.background-image{
+.background-image {
 	background-image: url("/img/main.jpg");
 	position: absolute;
 	top: 0;
@@ -134,20 +184,46 @@ header nav li {
 	margin: 0 0 40px 0;
 }
 
-.hero a.btn{
+.hero a.btn {
 	padding: 20px 46px;
 }
 
-.hero-content-area{
+.hero-content-area {
 	opacity: 0;
 	margin: 100px 0 0 0;
+	-webkit-animation: 1s slidefade 1s forwards;
 	animation: 1s slidefade 1s forwards;
 }
 
-@keyframes slidefade{
-	100%{
+@-webkit-keyframes slidefade {
+	100% {
 		opacity: 1;
 		margin: 0;
+	}
+}
+
+@keyframes slidefade {
+	100% {
+		opacity: 1;
+		margin: 0;
+	}
+}
+
+@media (max-width: 800px) {
+	.hero {
+		min-height: 600px;
+	}
+
+	.hero h1 {
+		font-size: 48px;
+	}
+
+	.hero h3 {
+		font-size: 24px;
+	}
+
+	.hero a.btn {
+		padding: 15px 40px;
 	}
 }
 
@@ -159,40 +235,72 @@ header nav li {
 	background-position: center;
 }
 
-.pic1{
+.pic1 {
 	background-image: url("/img/mountain1.jpg")
 }
-.pic2{
+
+.pic2 {
 	background-image: url("/img/mountain2.jpg")
 }
-.pic3{
+
+.pic3 {
 	background-image: url("/img/mountain3.jpg")
 }
-.pic4{
+
+.pic4 {
 	background-image: url("/img/mountain4.jpg")
 }
 
-.destinations .grid li.small{
+.destinations .grid li.small {
+	-ms-flex-preferred-size: 30%;
 	flex-basis: 30%;
 }
 
-.destinations .grid li.large{
+.destinations .grid li.large {
+	-ms-flex-preferred-size: 70%;
 	flex-basis: 70%;
+}
+
+@media (max-width: 1100px) {
+
+	.destinations .grid li.small,
+	.destinations .grid li.large {
+		-ms-flex-preferred-size: 50%;
+		flex-basis: 50%;
+	}
+}
+
+@media (max-width: 800px) {
+
+	.destinations .grid li.small,
+	.destinations .grid li.large {
+		-ms-flex-preferred-size: 100%;
+		flex-basis: 100%;
+	}
 }
 
 .packages .grid li {
 	padding: 50px;
+	-ms-flex-preferred-size: 50%;
 	flex-basis: 50%;
 	text-align: center;
 }
 
-.packages .grid li i{
+.packages .grid li i {
 	color: #8c9eff;
 }
 
-.packages .grid li h4{
+.packages .grid li h4 {
 	font-size: 30px;
-	margin:  25px 0;
+	margin: 25px 0;
+}
+
+@media (max-width: 800px) {
+	.packages .grid li {
+		-ms-flex-preferred-size: 100%;
+		flex-basis: 100%;
+		padding: 20px;
+	}
 }
 
 .testimonials .quote {
@@ -202,10 +310,28 @@ header nav li {
 	margin: 40px 0 25px 0;
 }
 
+@media (max-width: 800px) {
+	.testimonials .quote {
+		font-size: 18px;
+		margin: 15px 0;
+	}
+
+	.testimonials .author {
+		font-size: 14px;
+	}
+}
+
 .contact form {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	width: 60%;
 }
@@ -219,12 +345,27 @@ header nav li {
 	margin: 0 30px 0 0;
 	font-size: 18px;
 	color: #555;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
 	flex: 1;
 }
 
+@media (max-width: 1000px) {
+	.contact form input {
+		-ms-flex-preferred-size: 100%;
+		flex-basis: 100%;
+		margin: 0 0 20px 0;
+	}
+}
+
 footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-ms-flex-pack: distribute;
 	justify-content: space-around;
 	background-color: #607d8b;
 	color: #fff;
@@ -232,6 +373,8 @@ footer {
 }
 
 footer ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 
@@ -243,5 +386,24 @@ footer p {
 	text-transform: uppercase;
 	font-size: 14px;
 	opacity: 0.6;
+	-ms-flex-item-align: center;
 	align-self: center;
+}
+
+@media (max-width: 1100px) {
+	footer {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	footer p {
+		text-align: center;
+		margin: 0 0 20px 0;
+	}
+
+	footer ul li {
+		margin: 0 8px;
+	}
 }
